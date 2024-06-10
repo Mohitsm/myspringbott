@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CorsConfig implements WebMvcConfigurer{
 	 public void addCorsMappings(CorsRegistry registry) {
 	        registry.addMapping("/**")
-	                .allowedOriginPatterns("http://fronted-react.s3-website.ap-south-1.amazonaws.com/")
+	                .allowedOriginPatterns("http://localhost:5173")
 	                .allowedMethods("GET", "POST", "PUT", "DELETE")
 	                .allowedHeaders("Content-Type")
 	                .allowCredentials(true)
