@@ -1,5 +1,8 @@
 package com.employee.entity;
 
+import com.employee.entity.Provider;
+
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,8 +26,18 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long userId;
-	private String name;
+	private String name; 
 	private String email;
 	private String password;
+	private String profilePic;
+	private String phoneNumber;
+	private String role;
+	//information
+	private boolean enabled=false;
+	private boolean emailVerified = false;
+	private boolean phoneVerified = false;
+	// SELF, GOOGLE, FACEBOOK, TWITTER, LINKEDIN, GITHUB private Providers provider-Providers.SELF;
+	private String providerUserId;
+	private Provider provider=Provider.SELF;
 
 }
