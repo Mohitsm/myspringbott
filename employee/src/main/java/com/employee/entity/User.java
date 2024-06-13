@@ -1,6 +1,11 @@
 package com.employee.entity;
 
+
+
+
+
 import com.employee.entity.Provider;
+
 
 
 import jakarta.persistence.Entity;
@@ -39,5 +44,7 @@ public class User {
 	// SELF, GOOGLE, FACEBOOK, TWITTER, LINKEDIN, GITHUB private Providers provider-Providers.SELF;
 	private String providerUserId;
 	private Provider provider=Provider.SELF;
+	
+	
 
 }
