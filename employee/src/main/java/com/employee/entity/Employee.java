@@ -36,10 +36,21 @@ public class Employee {
 	private long employeeId;
 	private String name;
 	private String email;
+	private String mobile;
+	private String dob;
 	private String password;
-	private Double salary;
+	private String fname;
+	private String salary;
 	private String address;
+	private String jod;
+	private String gender;
 	private String category;
+	private String marritalStatus;
+	private String status;
+	private String site;
+	private String work;
+	
+	
 	
 	
 //	@OneToOne(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)

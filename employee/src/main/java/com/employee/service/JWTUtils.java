@@ -31,7 +31,7 @@
 //        return Jwts.builder()
 //                .subject(userDetails.getUsername())
 //                .issuedAt(new Date(System.currentTimeMillis()))
-//                .expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+//                .expiration(new Date(System.currentTimeMillis() + 1000*60*5))
 //                .signWith(Key)
 //                .compact();
 //    }
