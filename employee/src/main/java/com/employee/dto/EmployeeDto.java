@@ -1,5 +1,9 @@
 package com.employee.dto;
 
+import java.util.List;
+
+import com.employee.entity.CalculateSalary;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,4 +31,5 @@ public class EmployeeDto {
 	private String status;
 	private String site;
 	private String work;
+	
 }

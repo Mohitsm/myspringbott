@@ -59,6 +59,38 @@ public class Employee {
 //	@OneToOne(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 //	private List<Attendance> attendances=new ArrayList<>();
 	
+	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<CalculateSalary>calculateSalaries=new ArrayList<>();
+	
+	
+	@OneToOne(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private PayEmployee payEmployee;
+	
+	
+	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Report>reports=new ArrayList<>();
+	
+	
+	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Setting>settings=new ArrayList<>();
+	
+	
+	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Notification>notifications=new ArrayList<>();
+	
+	
+	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Document>documents=new ArrayList<>();
+	
+	
+	@OneToMany(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Attendance> attendances=new ArrayList<>();
+	
+	
+	@OneToOne(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private AddPayment addPayment;
+	
+	
 	
 	
 	

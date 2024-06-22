@@ -1,5 +1,7 @@
 package com.employee.dto;
 
+import com.employee.entity.Employee;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +15,7 @@ public class CalculateSalaryDto {
 	
 	private long calculateSalaryId;
 	private String category;
+
 
 
 }

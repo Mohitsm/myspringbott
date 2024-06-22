@@ -31,7 +31,7 @@ public class AddPayment {
 	private String geder;
 	
 	
-//	@OneToOne
-//	@JoinColumn(name = "employee_Id")
-//	private Employee employee;
+	@OneToOne
+	@JoinColumn(name = "employee_Id")
+	private Employee employee;
 }

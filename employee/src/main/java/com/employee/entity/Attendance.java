@@ -29,8 +29,8 @@ public class Attendance {
 	private String userName;
 	private String email;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "employee_Id")
-//	private Employee employee;
+	@ManyToOne
+	@JoinColumn(name = "employee_Id")
+	private Employee employee;
 
 }
