@@ -74,4 +74,10 @@ public class EmployeeServiceImp implements EmployeeService {
 		return employeeDtos;
 	}
 
+	@Override
+	public Long countEmployee() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.count();
+	}
+
 }

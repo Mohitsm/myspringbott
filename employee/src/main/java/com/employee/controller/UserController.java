@@ -3,6 +3,8 @@ package com.employee.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -70,5 +72,11 @@ public class UserController {
     @PreAuthorize("hasAuthority('USER')")
     public UserInfo getAllUsers(@PathVariable Integer id){
         return userInfoService.getUser(id);
+    }
+    @GetMapping("/count")
+    public ResponseEntity<Long> countUser(){
+    	
+    	return ResponseEntity.ok(this.userInfoService.countUser());
+    	
     }
 }

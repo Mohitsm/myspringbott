@@ -68,6 +68,10 @@ public class EmployeeContro {
 		    // your controller logic
 			return null;
 		}
+		@GetMapping("/count")
+		public ResponseEntity<Long> countEmployee(){
+			return ResponseEntity.ok(this.employeeService.countEmployee());
+		}
 		
 
 }
