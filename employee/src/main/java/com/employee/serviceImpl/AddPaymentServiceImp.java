@@ -36,9 +36,9 @@ public class AddPaymentServiceImp implements AddPaymentService {
 		// TODO Auto-generated method stub
 		AddPayment addPayment=this.addPaaymentRepo.findById(addPaymentId).orElseThrow(()->new ResourceNotFoundException("AddPayment", "Id", addPaymentId));
 		
-		addPayment.setName(addPaymentDto.getName());
-		addPayment.setUsername(addPaymentDto.getUsername());
-		addPayment.setEmail(addPaymentDto.getEmail());
+		addPayment.setPunchIn(addPaymentDto.getPunchIn());
+		addPayment.setPunchOut(addPaymentDto.getPunchOut());
+		addPayment.setStatus(addPaymentDto.getStatus());
 		AddPayment updateAddPayment=this.addPaaymentRepo.save(addPayment);
 		return this.modelMapper.map(updateAddPayment, AddPaymentDto.class);
 	}

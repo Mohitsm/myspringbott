@@ -24,7 +24,7 @@ public class UserInfoService implements UserDetailsService {
     private PasswordEncoder passwordEncoder;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserInfo> userInfo = userInfoRepository.findByName(username);
+        Optional<UserInfo> userInfo = userInfoRepository.findByemail(username);
         return userInfo.map(UserInfoDetails::new)
                 .orElseThrow(()-> new UsernameNotFoundException("User not found"+username));
     }

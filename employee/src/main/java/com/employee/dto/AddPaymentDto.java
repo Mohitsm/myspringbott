@@ -12,9 +12,9 @@ import lombok.Setter;
 public class AddPaymentDto {
 	
 	private long addPaymentId;
-	private String name;
+    private String punchIn;
 	
-	private String username;
-	private String email;
+	private String PunchOut;
+	private String status;
 
 }

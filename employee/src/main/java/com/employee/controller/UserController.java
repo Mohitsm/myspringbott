@@ -50,7 +50,7 @@ public class UserController {
         }
     }
     @PostMapping("/logout")
-    @PreAuthorize("hasAuthority('USER_ROLES') or hasAuthority('ADMIN_ROLES')")
+    @PreAuthorize("hasAuthority('USER') or hasAuthority('ADMIN')")
     public String logoutUser(HttpServletRequest request){
         String authHeader = request.getHeader("Authorization");
         String token= null;
@@ -62,12 +62,12 @@ public class UserController {
     }
 
     @GetMapping("/getUsers")
-    @PreAuthorize("hasAuthority('ADMIN_ROLES') or hasAuthority('USER_ROLES')")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
     public List<UserInfo> getAllUsers(){
         return userInfoService.getAllUser();
     }
     @GetMapping("/getUsers/{id}")
-    @PreAuthorize("hasAuthority('USER_ROLES')")
+    @PreAuthorize("hasAuthority('USER')")
     public UserInfo getAllUsers(@PathVariable Integer id){
         return userInfoService.getUser(id);
     }

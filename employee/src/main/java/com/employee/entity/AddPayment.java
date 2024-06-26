@@ -24,11 +24,11 @@ public class AddPayment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long addPaymentId;
-	private String name;
+	private String punchIn;
 	
-	private String username;
-	private String email;
-	private String geder;
+	private String PunchOut;
+	private String status;
+	
 	
 	
 	@OneToOne
