@@ -22,7 +22,7 @@ public class EmployeeDto {
 	private String dob;
 	private String password;
 	private String fname;
-	private String salary;
+	private Double salary;
 	private String address;
 	private String jod;
 	private String gender;

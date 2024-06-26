@@ -47,31 +47,36 @@ public class EmployeeContro {
 			return  ResponseEntity.ok(updateUser);
 		}
 		
-		@DeleteMapping("{employeeId}")
-		public ResponseEntity<ApiResponse> daleteEmployee(@PathVariable Long employeeId){
+	
+		//delete
+		@DeleteMapping("/{employeeId}")
+		public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable Long employeeId){
 			this.employeeService.deleteEmployee(employeeId);
-			
-			return new ResponseEntity<ApiResponse>(new ApiResponse("User Dalete Successfully",true),HttpStatus.OK);
+			return new ResponseEntity<ApiResponse>(new ApiResponse("category is deleted successfully !!", true),
+					HttpStatus.OK);
 		}
-		
-		@GetMapping("{employeeId}")
-		public ResponseEntity<EmployeeDto> getEmployeeId(@PathVariable Long employeeId){
+		//getByID
+		@GetMapping("/{employeeId}")
+		public ResponseEntity<EmployeeDto> getEmployeeBId(@PathVariable Long employeeId){
 			return ResponseEntity.ok(this.employeeService.getEmployeeId(employeeId));
 		}
 		
+		//getAll
 		@GetMapping("/")
-		public ResponseEntity<List<EmployeeDto>> getAllUser(){
-			return ResponseEntity.ok(this.employeeService.getAllEmployee());
+		public ResponseEntity<List<EmployeeDto>> getAllEmployee(){
+			return ResponseEntity.ok(this.employeeService.getAllemployee());
 		}
-		@PostMapping("/api/employee/")
-		public ResponseEntity<String> addEmployee(@RequestParam("file") MultipartFile file, @RequestParam("otherParam") String otherParam) {
-		    // your controller logic
-			return null;
-		}
+		//count
 		@GetMapping("/count")
-		public ResponseEntity<Long> countEmployee(){
-			return ResponseEntity.ok(this.employeeService.countEmployee());
-		}
+		 public ResponseEntity<Long> count() {
+	        long count = employeeService.count();
+	        return ResponseEntity.ok(count);
+	    }
 		
+		@GetMapping("/total")
+		 public ResponseEntity<Double> total(){
+			 Double total=employeeService.total();
+			 return ResponseEntity.ok(total);
+		 }
 
 }
