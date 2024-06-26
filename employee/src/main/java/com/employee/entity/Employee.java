@@ -49,6 +49,7 @@ public class Employee {
 	private String status;
 	private String site;
 	private String work;
+	private String zmageName;
 	
 	
 	

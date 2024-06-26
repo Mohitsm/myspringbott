@@ -5,6 +5,7 @@ import java.util.List;
 import com.employee.entity.CalculateSalary;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class EmployeeDto {
 
 	private long employeeId;
@@ -20,6 +22,7 @@ public class EmployeeDto {
 	private String email;
 	private String mobile;
 	private String dob;
+	private String zmageName;
 	private String password;
 	private String fname;
 	private Double salary;
@@ -31,5 +34,9 @@ public class EmployeeDto {
 	private String status;
 	private String site;
 	private String work;
+
+	public void setZmageName(byte[] bytes) {
+		// TODO Auto-generated method stub
+	}
 	
 }
