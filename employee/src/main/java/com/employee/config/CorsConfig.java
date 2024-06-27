@@ -13,8 +13,8 @@ public class CorsConfig implements WebMvcConfigurer{
                     .allowedOriginPatterns("http://localhost:5173","http://localhost:8081,","https://acetaffworld.com")
 	                .allowedMethods("GET", "POST", "PUT", "DELETE")
 	                .allowedHeaders("Content-Type","Authorization")
-	                .allowCredentials(true)
-	                .maxAge(3600); // Optional: set max age for CORS preflight requests
+	                .allowCredentials(true);
+//	                .maxAge(3600); // Optional: set max age for CORS preflight requests
 	    }
 	 
 
