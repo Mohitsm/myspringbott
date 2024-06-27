@@ -78,5 +78,58 @@ public class EmployeeContro {
 			 Double total=employeeService.total();
 			 return ResponseEntity.ok(total);
 		 }
+		
+		@GetMapping("/countm")
+		public ResponseEntity<Long> countByMale(){
+			return ResponseEntity.ok(this.employeeService.getMaleEmployeeCount());
+
+		}
+		@GetMapping("/countf")
+		public ResponseEntity<Long> countByFemale(){
+			return ResponseEntity.ok(this.employeeService.geFetmaleEmployeeCount());
+
+		}
+		@GetMapping("/countt")
+		public ResponseEntity<Long> countByTrans(){
+			return ResponseEntity.ok(this.employeeService.getTransEmployeeCount());
+
+		}
+		@GetMapping("/countc")
+		public ResponseEntity<Long> countBycurrent(){
+			return ResponseEntity.ok(this.employeeService.getCurrentEmployees());
+
+		}
+
+		@GetMapping("/countex")
+		public ResponseEntity<Long> countByExEmployee(){
+			return ResponseEntity.ok(this.employeeService.getExEmployeeEmployees());
+
+		}
+
+		@GetMapping("/countexit")
+		public ResponseEntity<Long> countByExitedEmployee(){
+			return ResponseEntity.ok(this.employeeService.getExitedEmployeeEmployees());
+
+		}
+
+		@GetMapping("/countn")
+		public ResponseEntity<Long> countByNewjoining(){
+			return ResponseEntity.ok(this.employeeService.getNewjoiningEmployees());
+
+		}
+
+		@GetMapping("/countti")
+		public ResponseEntity<Long> countByTransferredIn(){
+			return ResponseEntity.ok(this.employeeService.getTransferredInEmployees());
+
+		}
+
+		@GetMapping("/countto")
+		public ResponseEntity<Long> countByTransferredOut(){
+			return ResponseEntity.ok(this.employeeService.getTransferredOutEmployees());
+
+		}
+
+		
 
 }

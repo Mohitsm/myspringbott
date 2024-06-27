@@ -94,4 +94,58 @@ public class EmployeeServiceImp implements EmployeeService {
 		
 	}
 
+	@Override
+	public long getMaleEmployeeCount() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countMaleEmployees();
+	}
+
+	@Override
+	public long geFetmaleEmployeeCount() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countFemaleEmployees();
+	}
+
+	@Override
+	public long getTransEmployeeCount() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countTransEmployees();
+	}
+
+	@Override
+	public long getCurrentEmployees() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countCurrentEmployees();
+	}
+
+	@Override
+	public long getExEmployeeEmployees() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countExEmployeeEmployees();
+	}
+
+	@Override
+	public long getNewjoiningEmployees() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countNewjoiningEmployees();
+	}
+
+	@Override
+	public long getTransferredInEmployees() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countTransferredInEmployees();
+	}
+
+	@Override
+	public long getTransferredOutEmployees() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countTransferredOutEmployees();
+	}
+
+	@Override
+	public long getExitedEmployeeEmployees() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.countExitedEmployeeEmployees();
+	}
+
 }
