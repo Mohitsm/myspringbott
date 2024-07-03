@@ -1,13 +1,16 @@
 package com.employee.controller;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +32,8 @@ import com.employee.service.FileService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 
 
@@ -179,6 +184,15 @@ public class EmployeeContro {
 			return ResponseEntity.ok(this.employeeService.getTransferredOutEmployees());
 
 		}
+		
+		//methode to serve file
+		@GetMapping(value = "/image/{imageName}",produces=MediaType.IMAGE_JPEG_VALUE)
+		public void downlodeImage(@PathVariable ("imageName") String imageName,
+				HttpServletResponse response) throws IOException {
+			
+			InputStream resource=this.fileService.getResource(path, imageName);
+			response.setContentType(MediaType.IMAGE_JPEG_VALUE);
+			StreamUtils.copy(resource, response.getOutputStream());}
 
 		
 
