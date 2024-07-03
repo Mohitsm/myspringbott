@@ -1,9 +1,11 @@
 package com.employee.controller;
 
+import java.io.IOException;
 import java.util.List;
 
-
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,7 +22,13 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.employee.dto.ApiResponse;
 import com.employee.dto.EmployeeDto;
+import com.employee.dto.FileResponse;
+import com.employee.entity.Employee;
 import com.employee.service.EmployeeService;
+import com.employee.service.FileService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 
@@ -32,13 +40,55 @@ public class EmployeeContro {
 	@Autowired
 	private EmployeeService employeeService;
 	
-	//create
+	@Autowired
+	private ObjectMapper objectMapper;
 	
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	
+	@Autowired
+	private FileService fileService;
+	
+	@Value("${project.image}")
+	private String path;
+	
+	//create
 	@PostMapping("/")
-	public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
-		EmployeeDto createEmployeeDto=this.employeeService.createEmployee(employeeDto);
-		return new ResponseEntity<EmployeeDto>(createEmployeeDto,HttpStatus.CREATED);
+	public ResponseEntity<?> addImage(@RequestParam("userData") String image,@RequestParam("file") MultipartFile file  ) throws JsonMappingException, JsonProcessingException{
+//		logger.info("file name {}",file.getOriginalFilename());
+//		logger.info("image:{}",image);
+		
+		Employee employee=this.objectMapper.readValue(image, Employee.class);
+		EmployeeDto employeeDto=modelMapper.map(employee, EmployeeDto.class);
+		employeeDto.setZmageName(file.getOriginalFilename());
+		EmployeeDto employee2=this.employeeService.createEmployee(employeeDto);
+		
+		String fileName;
+		try {
+			fileName = this.fileService.uplodeImage(path, file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new ResponseEntity<FileResponse>(new FileResponse(null,"Image is successfully not uplodeed !!"), HttpStatus.OK);
+
+		}
+//		Employee employee=this.objectMapper.readValue(image, Employee.class);
+//		employee.setZName(fileName);
+//		Employee employee2=this.employeeService.createEmployee(employee);
+		
+		
+		
+		return new ResponseEntity<FileResponse>(new FileResponse(fileName,"Image is successfully uplodeed !!"), HttpStatus.OK);
 	}
+	
+	
+	
+//	@PostMapping("/")
+//	public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
+//		EmployeeDto createEmployeeDto=this.employeeService.createEmployee(employeeDto);
+//		return new ResponseEntity<EmployeeDto>(createEmployeeDto,HttpStatus.CREATED);
+//	}
 	//update
 		@PutMapping("{employeeId}")
 		public ResponseEntity<EmployeeDto> updateEmployee(@RequestBody EmployeeDto employeeDto,@PathVariable Long employeeId){

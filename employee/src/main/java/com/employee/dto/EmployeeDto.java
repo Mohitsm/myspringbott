@@ -34,9 +34,10 @@ public class EmployeeDto {
 	private String status;
 	private String site;
 	private String work;
+	
 
-	public void setZmageName(byte[] bytes) {
-		// TODO Auto-generated method stub
-	}
+//	public void setZmageName(byte[] bytes) {
+//		// TODO Auto-generated method stub
+//	}
 	
 }
