@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -30,7 +32,6 @@ import com.employee.entity.Employee;
 import com.employee.service.EmployeeService;
 import com.employee.service.FileService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.servlet.http.HttpServletResponse;
@@ -51,6 +52,8 @@ public class EmployeeContro {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	private Logger logger=LoggerFactory.getLogger(EmployeeContro.class);
+	
 	
 	@Autowired
 	private FileService fileService;
@@ -60,14 +63,21 @@ public class EmployeeContro {
 	
 	//create
 	@PostMapping("/")
-	public ResponseEntity<?> addImage(@RequestParam("userData") String image,@RequestParam("file") MultipartFile file  ) throws JsonMappingException, JsonProcessingException{
+	public ResponseEntity<?> addImage(@RequestParam("userData") String image,@RequestParam("file") MultipartFile file  ) throws JsonProcessingException{
 //		logger.info("file name {}",file.getOriginalFilename());
 //		logger.info("image:{}",image);
 		
 		Employee employee=this.objectMapper.readValue(image, Employee.class);
+		employee.setZName(file.getOriginalFilename());
+		employee.setZmageName(file.getOriginalFilename());
+		logger.info("image :{})",employee.getZmageName());
 		EmployeeDto employeeDto=modelMapper.map(employee, EmployeeDto.class);
-		employeeDto.setZmageName(file.getOriginalFilename());
+//		employeeDto.setZmageName(file.getOriginalFilename());
+//		logger.info("image :{})",employeeDto.getZmageName());
 		EmployeeDto employee2=this.employeeService.createEmployee(employeeDto);
+		
+		
+		
 		
 		String fileName;
 		try {
@@ -78,9 +88,7 @@ public class EmployeeContro {
 			return new ResponseEntity<FileResponse>(new FileResponse(null,"Image is successfully not uplodeed !!"), HttpStatus.OK);
 
 		}
-//		Employee employee=this.objectMapper.readValue(image, Employee.class);
-//		employee.setZName(fileName);
-//		Employee employee2=this.employeeService.createEmployee(employee);
+	
 		
 		
 		

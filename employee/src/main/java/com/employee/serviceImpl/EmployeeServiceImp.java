@@ -30,7 +30,6 @@ public class EmployeeServiceImp implements EmployeeService {
 	public EmployeeDto createEmployee(EmployeeDto employeeDto) {
 		// TODO Auto-generated method stub
 		Employee employee=this.modelMapper.map(employeeDto, Employee.class);
-	     employee.setZmageName("defalut.png");
 		Employee createEmployee=this.employeeRepo.save(employee);
 		return this.modelMapper.map(createEmployee, EmployeeDto.class);
 	}

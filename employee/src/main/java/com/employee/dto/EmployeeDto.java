@@ -20,6 +20,7 @@ public class EmployeeDto {
 	private long employeeId;
 	private String name;
 	private String email;
+	private String zName;
 	private String mobile;
 	private String dob;
 	private String zmageName;

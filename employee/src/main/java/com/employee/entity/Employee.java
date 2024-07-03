@@ -35,6 +35,7 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long employeeId;
 	private String name;
+	private String zName;
 	private String email;
 	private String mobile;
 	private String dob;
