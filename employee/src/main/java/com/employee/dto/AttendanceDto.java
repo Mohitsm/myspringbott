@@ -1,5 +1,7 @@
 package com.employee.dto;
 
+import com.employee.entity.Employee;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,8 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AttendanceDto {
 	private long attendanceId;
-	private String name;
-	private String userName;
-	private String email;
+	private String punchIn;
+	private String punchout;
+	private String status;
+	
 
 }

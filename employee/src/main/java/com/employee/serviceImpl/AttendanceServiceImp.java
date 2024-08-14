@@ -34,9 +34,9 @@ public class AttendanceServiceImp implements AttendanceService {
 	public AttendanceDto updateAttendance(AttendanceDto attendanceDto, Long attendanceId) {
 		// TODO Auto-generated method stub
 		Attendance attendance=this.attendanceRepo.findById(attendanceId).orElseThrow(()-> new ResourceNotFoundException("Attendance", "Id", attendanceId));
-		attendance.setName(attendanceDto.getName());
-		attendance.setUserName(attendanceDto.getUserName());
-		attendance.setEmail(attendanceDto.getEmail());
+		
+//		attendance.setPunchIn(attendanceDto.getPunchIn());
+//		attendance.setPunchout(attendanceDto.getPunchout());
 		Attendance updateAttendance=this.attendanceRepo.save(attendance);
 		return this.modelMapper.map(updateAttendance, AttendanceDto.class);
 	}

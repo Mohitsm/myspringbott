@@ -1,5 +1,7 @@
 package com.employee.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +27,9 @@ public class Attendance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long attendanceId;
-	private String name;
-	private String userName;
-	private String email;
+	private LocalDateTime punchIn;
+	private LocalDateTime punchout;
+	private String status;
 	
 	@ManyToOne
 	@JoinColumn(name = "employee_Id")
