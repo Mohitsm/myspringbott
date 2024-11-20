@@ -40,6 +40,7 @@ public class Employee {
 	private String category;
 	
 	private String zmageName;
+	private String gender;
 	
 	
 	

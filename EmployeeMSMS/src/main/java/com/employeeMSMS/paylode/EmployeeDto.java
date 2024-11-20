@@ -18,6 +18,8 @@ public class EmployeeDto {
 	private Double salary;
 	private String address;
 private String category;
+private String gender;
+
 	private String zmageName;
 	public void setZmageName(byte[] bytes) {
 		// TODO Auto-generated method stub

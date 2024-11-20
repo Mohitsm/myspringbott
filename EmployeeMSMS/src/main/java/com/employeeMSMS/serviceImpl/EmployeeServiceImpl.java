@@ -1,6 +1,7 @@
 package com.employeeMSMS.serviceImpl;
 
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -90,6 +91,18 @@ public class EmployeeServiceImpl implements EmployeeService{
         return employees.stream().mapToDouble(Employee::getSalary).sum();
 
 		
+	}
+
+	@Override
+	public Long countByFemale() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.FindByFemale();
+	}
+
+	@Override
+	public Long countByMale() {
+		// TODO Auto-generated method stub
+		return this.employeeRepo.FindByMale();
 	}
 
 	

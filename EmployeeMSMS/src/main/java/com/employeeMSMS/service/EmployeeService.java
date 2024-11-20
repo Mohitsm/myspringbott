@@ -13,6 +13,8 @@ public interface EmployeeService {
 	List<EmployeeDto> getAllemployee();
 	public Long count();
 	public Double total();
+	public Long countByFemale();
+	public Long countByMale();
 	
 
 }
